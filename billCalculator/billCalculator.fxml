@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="461.0" style="-fx-background-color: #eeccff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="billCalculator.Controller">
+   <children>
+      <AnchorPane prefHeight="101.0" prefWidth="461.0" style="-fx-background-color: #834da4;">
+         <children>
+            <Label layoutX="170.0" layoutY="28.0" text="Чаевые" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Print Bold" size="31.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="49.0" fitWidth="23.0" layoutX="158.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@link-hover.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="input" layoutX="41.0" layoutY="145.0" prefHeight="31.0" prefWidth="150.0" promptText="Введите чек" style="-fx-background-radius: 10;" />
+      <ToggleButton fx:id="roundButton" layoutX="265.0" layoutY="305.0" mnemonicParsing="false" onAction="#onRoundButton" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #834da4; -fx-background-radius: 5;" text="Округлить" textFill="WHITE">
+         <font>
+            <Font size="12.0" />
+         </font></ToggleButton>
+      <TextField fx:id="outputBill" editable="false" layoutX="265.0" layoutY="158.0" prefHeight="31.0" prefWidth="150.0" style="-fx-background-radius: 5;" />
+      <TextField fx:id="outputTips" editable="false" layoutX="265.0" layoutY="210.0" prefHeight="31.0" prefWidth="150.0" style="-fx-background-radius: 5;" />
+      <TextField fx:id="result" editable="false" layoutX="265.0" layoutY="261.0" prefHeight="31.0" prefWidth="150.0" style="-fx-background-radius: 5;" />
+      <Label layoutX="268.0" layoutY="140.0" text="Чек на:">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
+      <Label layoutX="268.0" layoutY="193.0" text="Чаевые:">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
+      <Label layoutX="268.0" layoutY="244.0" text="К оплате:">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
+      <Slider fx:id="tips" layoutX="45.0" layoutY="236.0" majorTickUnit="5.0" max="10.0" minorTickCount="0" prefHeight="28.0" prefWidth="150.0" showTickMarks="true" snapToTicks="true" />
+      <Label layoutX="92.0" layoutY="212.0" text="Чаевые:">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="49.0" layoutY="257.0" text="0">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
+      <Label layoutX="113.0" layoutY="257.0" text="5%">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
+      <Label layoutX="176.0" layoutY="257.0" text="10%">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
+      <ToggleButton fx:id="inRubButton" layoutX="342.0" layoutY="305.0" mnemonicParsing="false" onAction="#onRubButton" prefHeight="25.0" prefWidth="73.0" style="-fx-background-radius: 5; -fx-background-color: #834da4;" text="В рубли" textFill="WHITE" visible="false">
+         <font>
+            <Font size="12.0" />
+         </font></ToggleButton>
+      <Button fx:id="calculateButton" layoutX="41.0" layoutY="305.0" mnemonicParsing="false" onAction="#onCalculate" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #834da4; -fx-background-radius: 100;" text="Посчитать" textFill="WHITE">
+         <font>
+            <Font size="12.0" />
+         </font></Button>
+      <Button fx:id="clearButton" layoutX="116.0" layoutY="305.0" mnemonicParsing="false" onAction="#onClear" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #834da4; -fx-background-radius: 100;" text="Очистить" textFill="WHITE">
+         <font>
+            <Font size="12.0" />
+         </font></Button>
+      <TextField fx:id="outputRubBill" editable="false" layoutX="342.0" layoutY="158.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-radius: 5;" visible="false" />
+      <TextField fx:id="outputRubTips" editable="false" layoutX="342.0" layoutY="210.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-radius: 5;" visible="false" />
+      <TextField fx:id="rubResult" editable="false" layoutX="342.0" layoutY="261.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-radius: 5;" visible="false" />
+      <Label layoutX="345.0" layoutY="140.0" text="В рублях:" visible="false">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
+      <Separator blendMode="ADD" disable="true" layoutX="225.0" layoutY="136.0" mouseTransparent="true" orientation="VERTICAL" pickOnBounds="false" prefHeight="200.0">
+         <effect>
+            <Blend />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor>
+      </Separator>
+      <ComboBox fx:id="currencyBox" layoutX="42.0" layoutY="178.0" onAction="#onChosenCurrency" prefHeight="31.0" prefWidth="150.0" style="-fx-background-radius: 50;" value="Рубли">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Рубли" />
+               <String fx:value="Доллары" />
+               <String fx:value="Евро" />
+               <String fx:value="Тенге" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Label fx:id="errorText" layoutX="45.0" layoutY="124.0" text="*Ошибка" textFill="#b90000" visible="false">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
