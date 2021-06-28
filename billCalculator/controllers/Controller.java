@@ -1,4 +1,4 @@
-package billCalculator;
+package billCalculator.controllers;
 /*
  * реализуется
  * проверка корректности чека
@@ -8,47 +8,41 @@ package billCalculator;
  * @Author Mashina
  */
 
+import billCalculator.shake.Shake;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
-
-import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 
 public class Controller {
     @FXML
     private TextField input;
-
     @FXML
     private TextField outputBill;
     @FXML
     private TextField outputRubBill;
-
     @FXML
     private TextField outputTips;
     @FXML
     private TextField outputRubTips;
-
     @FXML
     private TextField result;
     @FXML
     private TextField rubResult;
-
     @FXML
     private Label errorText;
-
     @FXML
     private Slider tips;
-
     @FXML
     private ToggleButton inRubButton;
-
     @FXML
     private ToggleButton roundButton;
-
     @FXML
     private ComboBox<?> currencyBox;
 
@@ -321,5 +315,27 @@ public class Controller {
     private void getAnimation(TextField node) {
         Shake animation = new Shake(node);
         animation.playAnimation();
+    }
+
+    /**
+     * Открывает окно с сохраннеными чеками
+     */
+    @FXML
+    public void onOpenBill() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../fxmls/bill.fxml"));
+
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setTitle("Сохраненные чеки");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
     }
 }
