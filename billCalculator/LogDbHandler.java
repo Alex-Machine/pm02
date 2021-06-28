@@ -21,7 +21,7 @@ public class LogDbHandler extends LogConfigs {
      */
     public void signUpUser(User user) throws SQLException, ClassNotFoundException {
         String insert = "INSERT INTO " + LogConst.USER_TABLE +
-                "(" + LogConst.USERS_USERNAME + "," + LogConst.USERS_PASSWORD + "," + ")" + "VALUES(?,?,?,?,?)";
+                "(" + LogConst.USERS_USERNAME + "," + LogConst.USERS_PASSWORD + ")" + "VALUES(?, ?)";
         PreparedStatement prSt = getDbConnection().prepareStatement(insert);
         prSt.setString(1, user.getUsername());
         prSt.setString(2, user.getPassword());
