@@ -22,3 +22,5 @@
 5. В папке найти файл "billCalculator.jar".
 6. Запустить данный файл.
 
+# Мануал
+[](https://github.com/Alex-Machine/pm02/wiki/Работа-с-приложением)
