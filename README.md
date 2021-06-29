@@ -23,4 +23,4 @@
 6. Запустить данный файл.
 
 # Мануал
-[](https://github.com/Alex-Machine/pm02/wiki/Работа-с-приложением)
+[Работа с приложением](https://github.com/Alex-Machine/pm02/wiki/Работа-с-приложением)
